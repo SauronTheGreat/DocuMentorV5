@@ -1,0 +1,23 @@
+<h3>You have the following Assignments :</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Assignment Number</th>
+    <th>Case Study Name</th>
+    <th></th>
+    <th></th>
+
+
+  </tr>
+  <% @assignments.each_with_index.each do |assignment,index| %>
+
+  <tr>
+    <td><%= index+1 %></td>
+    <td><%= CaseStudy.find(assignment.case_study_id ).name%></td>
+    <td><%= link_to "PLAY",play_quiz_path(:assignment_id=>assignment.id) %></td>
+    <td><%= link_to "Tutorials",take_tutorials_path(:assignment_id=>assignment.id) %></td>
+
+  </tr>
+      <% end %>
+
+</table>

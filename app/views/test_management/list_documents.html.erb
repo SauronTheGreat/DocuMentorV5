@@ -1,0 +1,15 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Document Name</th>
+    <th></th>
+  </tr>
+
+  <% @docuchecks.each do |docu| %>
+  <tr>
+    <td><%= Document.find(docu.document_id).name %></td>
+    <td><%= link_to "Take Test",play_document_test_path(:docucheck_id=>docu.id) %></td>
+  </tr>
+
+
+  <% end %>
+</table>

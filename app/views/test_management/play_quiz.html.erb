@@ -1,0 +1,32 @@
+<%= form_tag :action => 'save_quiz_data' %>
+<%= hidden_field_tag :quiz_id, @quiz.id %>
+<%= hidden_field_tag :assignment_id, @assignment.id %>
+
+
+<table class="table table-bordered">
+  <tr>
+    <th>Question</th>
+    <th>Options</th>
+
+  </tr>
+  <% @questions.each do |question| %>
+      <tr>
+        <td>
+
+          <%= question.statement %>
+        <td>
+
+          <%= radio_button_tag "#{question.id}",1 %>
+          <%= question.optiona %>
+          <%= radio_button_tag "#{question.id}",2 %>
+          <%= question.optionb %>
+          <br>
+          <%= radio_button_tag "#{question.id}",3 %>
+          <%= question.optionc %>
+          <%= radio_button_tag "#{question.id}",4 %>
+          <%= question.optiond %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+<%= submit_tag "Confirm Answers",:class=>"btn-primary" %>
